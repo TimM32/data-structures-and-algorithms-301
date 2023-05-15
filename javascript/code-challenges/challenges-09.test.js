@@ -10,6 +10,12 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
+  return arr.reduce((max, current) => {
+    if (current > max) {
+      return current;
+    }
+    return max;
+  }, -Infinity);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,6 +32,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 
 const getCourseKeys = (obj) => {
   // Solution code here...
+  return Object.keys(obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,6 +45,12 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   // Solution code here...
+  for (let key in obj) {
+    if (obj[key] === value) {
+      return true;
+    }
+  }
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -61,7 +74,15 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   // Solution code here...
+  const arr = [];
+
+  for (let name in obj) {
+    arr.push(`${name}: ${obj[name]}`);
+  }
+
+  return arr;
 };
+
 
 
 
@@ -117,6 +138,9 @@ const characters = [
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+  for(let character of arr){
+    houses.push(character.house);
+  }
   return houses;
 };
 
@@ -134,7 +158,10 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-
+  const selectedCharacter = arr.find(char => char.name === character);
+  if (!selectedCharacter) return false;
+  const values = Object.values(selectedCharacter);
+  return values.some(val => Array.isArray(val) && val.length > 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
