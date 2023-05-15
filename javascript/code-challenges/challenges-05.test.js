@@ -15,7 +15,6 @@ const toLastNames = people => {
   // Solution code here...
   return people.map(person => `${person.firstName} ${person.lastName}`);
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
