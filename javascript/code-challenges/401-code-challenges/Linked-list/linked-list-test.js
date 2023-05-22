@@ -32,7 +32,30 @@ describe('Link List', () => {
 
   });
 
+  test('Will find a value in linked list and return as true', () => {
+    let list = new LinkedList();
+    list.insert(1);
+    list.insert(2);
 
+    expect(list.includes(2)).toBeTruthy();
+  });
+
+  test('Return false when searching for in a linked list for a value that does not exist', () => {
+    let list = new LinkedList();
+    list.insert(1);
+    list.insert(2);
+
+    expect(list.includes(3)).toBeFalsy();
+  });
+
+  test('Return a colelction of all values in a string from existing Linked List', () => {
+    let list = new LinkedList();
+    list.insert('{1}');
+    list.insert('{2}');
+    list.insert('{3}');
+
+    expect(list.toString()).toEqual('{1} --> {2} --> {3} --> NULL');
+  });
 
 });
 
