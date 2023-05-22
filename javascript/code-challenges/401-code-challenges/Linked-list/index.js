@@ -17,6 +17,40 @@ class LinkedList {
     node.next = this.head;
     this.head = node;
   }
+
+  append(value) {
+    let newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      return
+    }
+    let current = this.head;
+    while(current.next) {
+      current = current.next;
+    }
+    current.next = newNode;
+  }
+
+  includes(value) {
+    let current = this.head;
+    while(current) {
+      if(current.value === value) return true;
+      current = current.next;
+    }
+    return false;
+  }
+
+  toString() {
+    let current = this.head;
+    let result = current.head;
+    while(current.next) {
+      current = current.next;
+      result += '-->' + current.value;
+    }
+    result += '--> NULL';
+    return result;
+  }
+
 }
 
 module.exports = LinkedList;
