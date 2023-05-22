@@ -1,18 +1,18 @@
 'use strict';
 
 class Node {
-  constructor(value){
+  constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
 
 class LinkedList {
-  constructor(){
+  constructor() {
     this.head = null;
   }
 
-  insert(value){
+  insert(value) {
     let node = new Node(value);
     node.next = this.head;
     this.head = node;
@@ -25,7 +25,7 @@ class LinkedList {
       return
     }
     let current = this.head;
-    while(current.next) {
+    while (current.next) {
       current = current.next;
     }
     current.next = newNode;
@@ -33,8 +33,8 @@ class LinkedList {
 
   includes(value) {
     let current = this.head;
-    while(current) {
-      if(current.value === value) return true;
+    while (current) {
+      if (current.value === value) return true;
       current = current.next;
     }
     return false;
@@ -43,7 +43,7 @@ class LinkedList {
   toString() {
     let current = this.head;
     let result = current.head;
-    while(current.next) {
+    while (current.next) {
       current = current.next;
       result += '-->' + current.value;
     }
