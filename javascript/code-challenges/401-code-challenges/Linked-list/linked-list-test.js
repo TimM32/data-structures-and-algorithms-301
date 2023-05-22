@@ -50,11 +50,11 @@ describe('Link List', () => {
 
   test('Return a colelction of all values in a string from existing Linked List', () => {
     let list = new LinkedList();
-    list.insert('{1}');
-    list.insert('{2}');
-    list.insert('{3}');
+    list.insert('{ a }');
+    list.insert('{ b }');
+    list.insert('{ c }');
 
-    expect(list.toString()).toEqual('{1} --> {2} --> {3} --> NULL');
+    expect(list.toString()).toEqual('{ a } --> { b } --> { c } --> NULL');
   });
 
 });
