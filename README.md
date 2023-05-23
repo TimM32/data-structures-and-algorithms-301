@@ -20,4 +20,6 @@ To run your tests
 
 ### 401 Data Structures, Code Challenges
 
-[Code Challenge: Class 01 ](javascript/code-challenges/401-code-challenges/Array-reverse/README.md)
+[Code Challenge: Class 01](javascript/code-challenges/401-code-challenges/Array-reverse/README.md)
+[Code Challenge: Class 02](javascript/code-challenges/401-code-challenges/Array-insert-shift/README.md)
+
