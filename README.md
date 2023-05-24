@@ -23,6 +23,6 @@ To run your tests
 [Code Challenge: Class 01](javascript/code-challenges/401-code-challenges/Array-reverse/README.md)
 [Code Challenge: Class 02](javascript/code-challenges/401-code-challenges/Array-insert-shift/README.md)
 [Code Challenge: Class 03](javascript/code-challenges/401-code-challenges/Array-binary-search/README.md)
-
+[Code Challenge: Class 06](javascript/code-challenges/401-code-challenges/Linked-list/README.md)
 
 
