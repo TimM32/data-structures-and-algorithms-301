@@ -37,15 +37,15 @@ class LinkedList {
       this.head = node;
       return;
     }
-    if(this.head.value === arguement) {
+    if (this.head.value === arguement) {
       node.text = this.head;
       this.head = node;
       return;
     } else {
       let prevNode = null;
       let currentNode = this.head;
-      while(currentNode) {
-        if(currentNode.value === arguement) {
+      while (currentNode) {
+        if (currentNode.value === arguement) {
           node.next = currentNode;
           prevNode.next = node;
           return
@@ -76,10 +76,10 @@ class LinkedList {
     currentNode.next = node;
   }
 
-  includes(value){
+  includes(value) {
     let current = this.head;
-    while(current){
-      if(current.value === value){
+    while (current) {
+      if (current.value === value) {
         return true;
       } else {
         current = current.next;
@@ -101,4 +101,27 @@ class LinkedList {
 
 }
 
-module.exports = LinkedList;
+kthFromEnd(k) {
+  if (k < 0) {
+    return null; // k is not a positive integer
+  }
+  if (!this.head) {
+    // Empty list, cannot insert before
+    return null;
+  }
+  let currentValue = this.head;
+  let newCurrent = this.head;
+  for (let i = 0; i < k; i++) {
+    if (!currentValue.next) {
+      return null;
+    }
+    currentValue = currentValue.next;
+  }
+  while (currentValue.next) {
+    currentValue = currentValue.next;
+    newCurrent = newCurrent.next;
+  }
+  return newCurrent.value;
+}
+
+module.exports = { LinkedList, Node };
