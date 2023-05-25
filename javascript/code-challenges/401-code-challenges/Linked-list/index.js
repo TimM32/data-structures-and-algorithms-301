@@ -22,7 +22,7 @@ class LinkedList {
     let newNode = new Node(value);
     if (!this.head) {
       this.head = newNode;
-      return
+      return;
     }
     let current = this.head;
     while (current.next) {
@@ -48,7 +48,7 @@ class LinkedList {
         if (currentNode.value === arguement) {
           node.next = currentNode;
           prevNode.next = node;
-          return
+          return;
         }
         prevNode = currentNode;
         currentNode = currentNode.next;
@@ -99,29 +99,30 @@ class LinkedList {
     return result;
   }
 
-}
 
-kthFromEnd(k) {
-  if (k < 0) {
-    return null; // k is not a positive integer
-  }
-  if (!this.head) {
+
+  kthFromEnd(k) {
+    if (k < 0) {
+      return null; // k is not a positive integer
+    }
+    if (!this.head) {
     // Empty list, cannot insert before
-    return null;
-  }
-  let currentValue = this.head;
-  let newCurrent = this.head;
-  for (let i = 0; i < k; i++) {
-    if (!currentValue.next) {
       return null;
     }
-    currentValue = currentValue.next;
+    let currentValue = this.head;
+    let newCurrent = this.head;
+    for (let i = 0; i < k; i++) {
+      if (!currentValue.next) {
+        return null;
+      }
+      currentValue = currentValue.next;
+    }
+    while (currentValue.next) {
+      currentValue = currentValue.next;
+      newCurrent = newCurrent.next;
+    }
+    return newCurrent.value;
   }
-  while (currentValue.next) {
-    currentValue = currentValue.next;
-    newCurrent = newCurrent.next;
-  }
-  return newCurrent.value;
 }
 
 module.exports = { LinkedList, Node };
