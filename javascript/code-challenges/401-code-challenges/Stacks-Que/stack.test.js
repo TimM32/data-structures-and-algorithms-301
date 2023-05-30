@@ -1,8 +1,8 @@
-const { Stack } = require('../stack-and-queue/index');
+const { Stack } = require('../Stacks-Que/index');
 
 
 describe('Stack', () => {
-  test('Can successfully push onto a stack', () => {
+  test('Can we successfully push onto a stack', () => {
        let stack = new Stack();
        stack.push(1);
 
@@ -11,7 +11,7 @@ describe('Stack', () => {
   });
 
 
-  test('Can successfully push multiple values onto a stack', () => {
+  test('Can we successfully push multiple values onto a stack', () => {
     let stack = new Stack();
     stack.push(1);
     stack.push(2);
@@ -23,4 +23,4 @@ describe('Stack', () => {
     expect(stack.top.next.next.next).toBeNull();
   });
 
-  
+
