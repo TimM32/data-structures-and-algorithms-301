@@ -56,4 +56,31 @@ class Queue {
 
   }
 
+  dequeue() {
+    let removedValue = null;
+    if (this.front) {
+      removedValue = this.front.value;
+      if (this.front === this.back) {
+        this.back = null;
+      }
+      this.front = this.front.next
+    }
+    return removedValue;
+  }
+
+  peek() {
+    if (this.front !== null) {
+      return this.front.value;
+
+    } else {
+      return null;
+    }
+  }
+
+  isEmpty() {
+    return (this.front === null);
+  }
+
 }
+
+module.exports = { Stack, Queue };
