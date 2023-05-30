@@ -47,10 +47,10 @@ class Queue {
     let newNode = new Node(value);
     if (this.front) {
 
-      this.back.next = newNode
+      this.back.next = newNode;
     } else {
 
-      this.front = newNode
+      this.front = newNode;
     }
 
 
@@ -63,7 +63,7 @@ class Queue {
       if (this.front === this.back) {
         this.back = null;
       }
-      this.front = this.front.next
+      this.front = this.front.next;
     }
     return removedValue;
   }
