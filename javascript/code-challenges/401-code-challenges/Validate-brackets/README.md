@@ -41,14 +41,15 @@ Explain the approach and efficiency of the validateBrackets function and any add
 
 ## Whiteboard Process
   Code Challenge 11
-[image]()
+![Code Challenge 13- Whiteboard](../Images/Code_challenge13.png)
+
 
 ## Solution
 Code Challenge 11
-[image]()
+[image](../Images/Code-Challege_13_tests.png)
 
 ## Collaboration
-Thanks to Tim Maupin for the collaboration.
+Nick Mullaney was my partner!
 
 Thanks to chatgpt for helping with the testing.
 
