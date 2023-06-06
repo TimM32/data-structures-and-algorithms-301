@@ -17,28 +17,53 @@ class Tree {
 
   preOrder() {
     const results = [];
-    const travese = (node) => {
+    const traverse = (node) => {
       results.push(node.value);
 
       if (node.left) {
-        travese(node.left);
+        traverse(node.left);
       }
 
       if (node.right) {
-        travese(node.right);
+        traverse(node.right);
       }
     };
 
-    travese(this.root);
+    traverse(this.root);
     return results;
   }
 
   inOrder() {
-    cosnt results = [];
-    const travese = (node) => {
-      id (node.left) {
-        travese(node.left);
+    const results = [];
+    const traverse = (node) => {
+      if (node.left) {
+        traverse(node.left);
       }
+      results.push(node.value);
+
+      if (node.right) {
+        traverse(node.right);
+      }
+    };
+    traverse(this.root);
+    return results;
+  }
+
+  postOrder() {
+    const results = [];
+    const traverse = (node) => {
+      if (node.left) {
+        traverse(node.left);
+      }
+      if (node.right) {
+        traverse(node.right);
+      }
+      results.push(node.value);
+    };
+
+    if (this.root) {
+      traverse(this.root);
     }
+    return results;
   }
 }
