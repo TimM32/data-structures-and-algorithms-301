@@ -67,3 +67,32 @@ class Tree {
     return results;
   }
 }
+
+
+
+class BinarySearch extends Tree {
+  constructor() {
+    super();
+  }
+
+  add(value) {
+    const newNode = new Node(value);
+
+    if (this.root === null) {
+      this.root = newNode;
+      return this;
+    }
+
+    let current = this.root;
+
+    while (true) {
+      if (value < current.value) {
+        if (current.left === null) {
+          current.left = newNode;
+          return this;
+        }
+      }
+    }
+  }
+}
+
