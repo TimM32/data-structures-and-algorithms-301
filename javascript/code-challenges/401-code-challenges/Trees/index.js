@@ -91,7 +91,12 @@ class BinarySearch extends Tree {
           current.left = newNode;
           return this;
         }
-        current = current.right;
+        current = current.left;
+      } else if (value > current.value) {
+        if (current.right === null) {
+          current.right = newNode;
+          return this;
+        }
       } else {
         return null;
       }
@@ -118,6 +123,7 @@ class BinarySearch extends Tree {
     if (!found) {
       return false;
     }
+    return true;
   }
 }
 
