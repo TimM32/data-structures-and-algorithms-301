@@ -10,4 +10,4 @@ test('Return the max value from a binary tree', () => {
 
   expect(tree.maxValue()).toEqual(15);
 });
-
+});
