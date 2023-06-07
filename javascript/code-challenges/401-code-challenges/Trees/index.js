@@ -66,6 +66,23 @@ class Tree {
     }
     return results;
   }
+
+  maxValue() {
+    const results = [];
+    const traverse = (node) => {
+      if(node.left){
+        traverse(node.left);
+      }
+      results.push(node.value);
+
+      if(node.right){
+        traverse(node.right);
+      }
+    };
+    traverse(this.root);
+    let maxValue = results.pop();
+    return maxValue;
+  }
 }
 
 
