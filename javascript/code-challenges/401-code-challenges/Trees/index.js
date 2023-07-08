@@ -1,154 +1,120 @@
 'use strict';
-
 class Node {
-  constructor(value) {
+  constructor(value){
     this.value = value;
-    this.right = null;
     this.left = null;
+    this.right = null;
   }
-
 }
 
 class Tree {
-  constructor() {
+  constructor(){
     this.root = null;
   }
-
-
-  preOrder() {
+  preOrder(){
+    if(!this.root) {
+      throw new Error('Empty Tree');
+    }
     const results = [];
+    // defining helper our function
     const traverse = (node) => {
+      // base case (do the thing)
       results.push(node.value);
-
-      if (node.left) {
+      // left and right recursive cases
+      if(node.left) {
         traverse(node.left);
       }
-
-      if (node.right) {
+      if(node.right){
         traverse(node.right);
       }
+      // note IF there is no left and no right WE ARE DONE WITH THIS FUNCTION
     };
-
+    // get the recursive party started
     traverse(this.root);
     return results;
   }
-
-  inOrder() {
+  inOrder(){
+    if(!this.root) {
+      throw new Error('Empty Tree');
+    }
     const results = [];
     const traverse = (node) => {
-      if (node.left) {
+      if(node.left) {
         traverse(node.left);
       }
-      results.push(node.value);
-
-      if (node.right) {
+      results.push(node.value);  // performing our base case here makes this inOrder
+      if(node.right){
         traverse(node.right);
       }
     };
     traverse(this.root);
     return results;
   }
-
-  postOrder() {
+  postOrder(){
+    if(!this.root) {
+      throw new Error('Empty Tree');
+    }
     const results = [];
     const traverse = (node) => {
-      if (node.left) {
-        traverse(node.left);
-      }
-      if (node.right) {
-        traverse(node.right);
-      }
-      results.push(node.value);
+      if(node.left) traverse(node.left);
+      if(node.right) traverse(node.right);
+      results.push(node.value); // performing our base case here makes this postOrder
     };
-
-    if (this.root) {
-      traverse(this.root);
-    }
+    traverse(this.root);
     return results;
   }
-
-  breadthFirst() {
-    if (!this.root) {
-      return [];
-    }
-
-    const queue = [this.root];
-    const results = [];
-
-    while (queue.length > 0) {
-      const node = queue.shift();
-      results.push(node.value);
-
-      if (node.left) {
-        queue.push(node.left);
-      }
-      if (node.right) {
-        queue.push(node.right);
-      }
-    }
-
-    return results;
-  }
-
-}
-
-
-
-class BinarySearch extends Tree {
-  constructor() {
-    super();
-  }
-
-  add(value) {
-    const newNode = new Node(value);
-
-    if (this.root === null) {
-      this.root = newNode;
-      return this;
-    }
-
+  addValue(newValue){
     let current = this.root;
-
-    while (true) {
-      if (value < current.value) {
-        if (current.left === null) {
-          current.left = newNode;
-          return this;
+    while(current){
+      if(newValue < current.value) {
+        if(!current.left){
+          current.left = new Node(newValue);
+          break;
         }
         current = current.left;
-      } else if (value > current.value) {
-        if (current.right === null) {
-          current.right = newNode;
-          return this;
+      } else if(newValue > current.value){
+        if(!current.right){
+          current.right = new Node(newValue);
+          break;
         }
-      } else {
-        return null;
-      }
-    }
-  }
-
-  containedValue(value) {
-    if (this.root === null) {
-      return false;
-    }
-
-    let current = this.root;
-    let found = false;
-
-    while (current && !found) {
-      if (value < current.value) {
-        current = current.left;
-      } else if (value > current.value) {
         current = current.right;
       } else {
-        found = true;
+        current = null;
       }
     }
-    if (!found) {
-      return false;
-    }
-    return true;
+  }
+  contains(targetValue){
+    let results = false;
+    let x = 1;
+    const traverse = (node) => {
+      if(x){
+        if(node.value === targetValue){
+          results = true;
+          x--;
+        }
+        if(node.left) traverse(node.left);
+        if(node.right) traverse(node.right);
+      }
+    };
+    traverse(this.root);
+    return results;
   }
 }
+let tree = new Tree();
+tree.root = new Node(10);
+tree.root.left = new Node(5);
+tree.root.right = new Node(15);
+tree.root.left.left = new Node(1);
+tree.root.left.right = new Node(8);
+tree.root.right.right = new Node(17);
+console.log('-------preOrder-------');
+let results = tree.preOrder();
+console.log('preOrder results:', results);
+console.log('-------inOrder-------');
+results = tree.inOrder();
+console.log('inOrder results:', results);
+console.log('-------postOrder-------');
+results = tree.postOrder();
+console.log('postOrder results:', results);
 
-module.exports = { Node, Tree, BinarySearch };
+module.exports = { Tree, Node };
